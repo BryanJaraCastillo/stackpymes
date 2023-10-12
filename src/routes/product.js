@@ -9,7 +9,7 @@ const {
   updateProduct,
   deleteProduct,
   actualizarStock,
-} = require("../controllers/Product");
+} = require("../controllers/product");
 const { check } = require("express-validator");
 
 /**

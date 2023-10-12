@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { validarJWT } = require("../middlewares/validar-jwt");
-const { updateUser } = require("../controllers/User");
+const { updateUser } = require("../controllers/user");
 
 /**
  * Route: /user

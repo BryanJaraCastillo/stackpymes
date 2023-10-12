@@ -1,9 +1,8 @@
-
 const express = require("express");
 const router = express.Router();
 const { validarJWT } = require("../middlewares/validar-jwt");
 const { validarCampos } = require("../middlewares/validar-campos");
-const { payment, getOrders} = require("../controllers/Order");
+const { payment, getOrders } = require("../controllers/order");
 
 /**
  * Ruta: /order

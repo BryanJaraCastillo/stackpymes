@@ -9,7 +9,7 @@ const {
   getAllCategories,
   getCategoryById,
   updateCategory,
-} = require("../controllers/Category");
+} = require("../controllers/category");
 const { check } = require("express-validator");
 
 /**

@@ -7,7 +7,7 @@ const {
   register,
   updateUser,
   renewToken,
-} = require("../controllers/Auth");
+} = require("../controllers/auth");
 const { validarCampos } = require("../middlewares/validar-campos");
 const { validarJWT } = require("../middlewares/validar-jwt");
 
