@@ -21,85 +21,82 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-//TODO: getProductById
 const getProductById = async (req, res) => {
-  // try {
-  //   const { id } = req.params;
-  //   const product = await productModel
-  //     .findById(id)
-  //     .populate("categoria", "nombre");
-  //   if (!product) {
-  //     return res.status(400).json({
-  //       status: false,
-  //       message: "Error al obtener el producto",
-  //     });
-  //   }
-  //   return res.status(200).json({
-  //     status: true,
-  //     product,
-  //   });
-  // } catch (error) {
-  //   return res.status(500).json({
-  //     status: false,
-  //     message: "Error al obtener el producto",
-  //   });
-  // }
+  try {
+    const { id } = req.params;
+    const product = await productModel
+      .findById(id)
+      .populate("categoria", "nombre");
+    if (!product) {
+      return res.status(400).json({
+        status: false,
+        message: "Error al obtener el producto",
+      });
+    }
+    return res.status(200).json({
+      status: true,
+      product,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: false,
+      message: "Error al obtener el producto",
+    });
+  }
 };
 
-//TODO: createProduct
 const createProduct = async (req, res) => {
-  // try {
-  //   const { body } = req;
-  //   const productDB = new productModel(body);
-  //   await productDB.save();
-  //   if (!productDB) {
-  //     return res.status(400).json({
-  //       status: false,
-  //       message: "Error al guardar el producto",
-  //     });
-  //   }
-  //   const product = await productModel
-  //     .findOne({ _id: productDB.id })
-  //     .populate({ path: "categoria", select: "nombre" });
-  //   return res.status(200).json({
-  //     status: true,
-  //     product,
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  //   return res.status(500).json({
-  //     status: false,
-  //     message: "Error al guardar el producto",
-  //   });
-  // }
+  try {
+    const { body } = req;
+    const productDB = new productModel(body);
+    await productDB.save();
+    if (!productDB) {
+      return res.status(400).json({
+        status: false,
+        message: "Error al guardar el producto",
+      });
+    }
+    const product = await productModel
+      .findOne({ _id: productDB.id })
+      .populate({ path: "categoria", select: "nombre" });
+    return res.status(200).json({
+      status: true,
+      product,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      status: false,
+      message: "Error al guardar el producto",
+    });
+  }
 };
 
-//TODO: updateProduct
 const updateProduct = async (req, res) => {
-  // try {
-  //   const { id } = req.params;
-  //   const { body } = req;
-  //   const product = await productModel
-  //     .findByIdAndUpdate(id, body, {
-  //       new: true,
-  //     })
-  //     .populate("categoria", "nombre");
-  //   if (!product) {
-  //     return res.status(400).json({
-  //       status: false,
-  //       message: "Error al actualizar el producto",
-  //     });
-  //   }
-  //   return res.status(200).json({
-  //     status: true,
-  //     product,
-  //   });
-  // } catch (error) {
-  //   return res.status(500).json({
-  //     status: false,
-  //     message: "Error al actualizar el producto",
-  //   });
-  // }
+  try {
+    const { id } = req.params;
+    const { body } = req;
+    const product = await productModel
+      .findByIdAndUpdate(id, body, {
+        new: true,
+      })
+      .populate("categoria", "nombre");
+    if (!product) {
+      return res.status(400).json({
+        status: false,
+        message: "Error al actualizar el producto",
+      });
+    }
+    return res.status(200).json({
+      status: true,
+      product,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: false,
+      message: "Error al actualizar el producto",
+    });
+  }
 };
 
 const deleteProduct = async (req, res) => {

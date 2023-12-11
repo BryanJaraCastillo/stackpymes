@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
@@ -7,8 +7,8 @@ const expressFileUpload = require("express-fileupload");
 //Config
 const app = express();
 const PORT = process.env.PORT || 3000;
-// const {bdConnect}=require('./src/config/database');
-// bdConnect();
+const { bdConnect } = require("./src/config/database");
+bdConnect();
 
 //Middlewares
 app.use(cors());
@@ -22,10 +22,10 @@ app.use(expressFileUpload());
 app.use("/api/auth", require("./src/routes/auth"));
 app.use("/api/category", require("./src/routes/category"));
 app.use("/api/product", require("./src/routes/product"));
-// app.use('/api/user',require('./src/routes/User'));
-// app.use('/api/search',require('./src/routes/search'));
-// app.use('/api/upload',require('./src/routes/upload'));
-// app.use('/api/order',require('./src/routes/order'));
+app.use("/api/user", require("./src/routes/User"));
+app.use("/api/search", require("./src/routes/search"));
+app.use("/api/upload", require("./src/routes/upload"));
+app.use("/api/order", require("./src/routes/order"));
 
 // Start server
 app.listen(PORT, () => {
